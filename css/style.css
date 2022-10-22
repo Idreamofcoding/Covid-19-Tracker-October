@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#map {
+    width: 400px;
+    height: 400px;
+}
+
+.one {
+    display: flex;
+}
+
+.one-a {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
