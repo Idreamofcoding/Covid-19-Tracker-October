@@ -37,3 +37,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
+let countries = [];
+
+$.get("https://disease.sh/v3/covid-19/countries", function(data, status){
+    try {
+        console.log(data);
+        console.log(status);
+    } catch(e) {
+        console.error("Error getting Country Data", e)
+    }
+});
+
