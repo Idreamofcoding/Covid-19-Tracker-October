@@ -41,10 +41,17 @@ let countries = [];
 
 $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
     try {
-        console.log(data);
-        console.log(status);
+        countries = data;
+        // this loops through all countries for the select option drop down menu
+        countries.forEach((value, index) => {
+            $("#country").append($('<option value="' + index + '">' + value.country + '</option>'));
+
+        })
     } catch(e) {
         console.error("Error getting Country Data", e)
     }
 });
 
+
+
+// 45:44
