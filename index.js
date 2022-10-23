@@ -49,6 +49,7 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
         // this loops through all countries for the select option drop down menu
         countries.forEach((value, index) => {
             $("#country").append($('<option value="' + index + '">' + value.country + '</option>'));
+            // console.log(value)
             console.log(value)
             // 
             // this will show the country and its number of cases today
@@ -70,7 +71,9 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
 
 
 function selectCountry(index) {
-
+    $("#death").text(countries[index].deaths)
+    $("#recovered").text(countries[index].recovered)
+    $("#cases").text(countries[index].cases)
 }
 
 
