@@ -42,16 +42,36 @@ let countries = [];
 $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
     try {
         countries = data;
+        $("#death").text(countries[0].deaths)
+        $("#recovered").text(countries[0].recovered)
+        $("#cases").text(countries[0].cases)
+
         // this loops through all countries for the select option drop down menu
         countries.forEach((value, index) => {
             $("#country").append($('<option value="' + index + '">' + value.country + '</option>'));
-
+            console.log(value)
+            // 
+            // this will show the country and its number of cases today
+            // console.log(value.country)
+            // console.log(value.todayCases)
+            // console.log(value.todayDeaths)
+            // 
+            // this will get country id
+            // console.log(value.countryInfo._id)
+            // 
+            // this will get country flag
+            // console.log(value.country)
+            // console.log(value.countryInfo.flag)
         })
     } catch(e) {
         console.error("Error getting Country Data", e)
     }
 });
 
+
+function selectCountry(index) {
+
+}
 
 
 // 45:44
