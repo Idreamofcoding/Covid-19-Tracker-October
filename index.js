@@ -55,7 +55,7 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
             $("#country").append($('<option value="' + index + '">' + value.country + '</option>'));
 
             // // Creating a marker
-            var marker = new L.Marker({ map, position: {lat: value.countryInfo.lat, lng: value.countryInfo.long}});
+            var marker = new L.marker([value.countryInfo.lat, value.countryInfo.long]).addTo(map);
 
 
             // Adding marker to the map
