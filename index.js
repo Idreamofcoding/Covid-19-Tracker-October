@@ -45,6 +45,9 @@ var marker = new L.Marker(nyc);
 // Adding marker to the map
 marker.addTo(map);
 
+// Adding pop-up to the marker
+marker.bindPopup('New York City').openPopup();
+
 
 let countries = [];
 
