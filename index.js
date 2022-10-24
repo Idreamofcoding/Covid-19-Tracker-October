@@ -36,7 +36,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+// Creating a variable for coordinates
+var nyc = { lat: 40.71, lng: -74.006 }
 
+// Creating a marker
+var marker = new L.Marker(nyc);
+
+// Adding marker to the map
+marker.addTo(map);
 
 
 let countries = [];
