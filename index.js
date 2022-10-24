@@ -27,7 +27,8 @@
 //     });
 
 
-
+// Creating a variable for coordinates
+var nyc = { lat: 40.71, lng: -74.006 }
 
 var map = L.map('map').setView([ 40.71, -74.006], 10);
 
@@ -36,17 +37,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// Creating a variable for coordinates
-var nyc = { lat: 40.71, lng: -74.006 }
 
-// Creating a marker
-var marker = new L.Marker(nyc);
-
-// Adding marker to the map
-marker.addTo(map);
-
-// Adding pop-up to the marker
-marker.bindPopup('New York City').openPopup();
 
 
 let countries = [];
@@ -62,7 +53,16 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
         // this loops through all countries for the select option drop down menu
         countries.forEach((value, index) => {
             $("#country").append($('<option value="' + index + '">' + value.country + '</option>'));
-            
+
+            // // Creating a marker
+            var marker = new L.Marker({ map, position: {lat: value.countryInfo.lat, lng: value.countryInfo.long}});
+
+
+            // Adding marker to the map
+            marker.addTo(map);
+
+            // Adding pop-up to the marker
+            marker.bindPopup(`${value.country}`).openPopup();
         })
     } catch(e) {
         console.error("Error getting Country Data", e)
