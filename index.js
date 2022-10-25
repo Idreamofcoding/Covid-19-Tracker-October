@@ -45,6 +45,7 @@ let countries = [];
 $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
     try {
         countries = data;
+        console.log("dog", data)
         console.log("countries", countries)
         $("#death").text(countries[0].deaths)
         $("#recovered").text(countries[0].recovered)
@@ -61,8 +62,28 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
             // Adding marker to the map
             marker.addTo(map);
 
-            // Adding pop-up to the marker
-            marker.bindPopup(`${value.country}`).openPopup();
+            var htmlForPopup = `
+                    <div>
+                        <b><h3>${value.country}</h3></b>
+                        <div>
+                            <span>Population</span>
+                            <span>${value.population}</span>
+                            <br>
+                            <span>Today's Cases</span>
+                            <span>${value.todayCases}</span>
+                            <br>
+                            <span>Today's Deaths</span>
+                            <span>${value.todayDeaths}</span>
+                            <br>
+                            <span>Today's Recovered</span>
+                            <span>${value.todayRecovered}</span>
+                            <br>
+                            <span>Critical</span>
+                            <span>${value.critical}</span>
+                        </div>
+                    </div>
+                `;
+            marker.bindPopup(htmlForPopup).openPopup();
         })
     } catch(e) {
         console.error("Error getting Country Data", e)
