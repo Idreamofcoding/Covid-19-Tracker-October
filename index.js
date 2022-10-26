@@ -1,43 +1,16 @@
-// let map;
-
-// function initMap() {
-//     const nyc = { lat: 40.7128, lng: 74.0060 }
-//     map = new google.maps.Map(document.getElementById("map"), {
-//     center: nyc,
-//     zoom: 8,
-//     });
-// }
-// window.initMap = initMap;
-
-
-// step 1 done with Leaflet.js
-
-
-// var map = L.map('map').setView([ 40.71, -74.006], 10);
-
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 19,
-//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// }).addTo(map);
-
-
-// $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
-//     console.log(data);
-//     console.log(status);
-//     });
-
-
 // Creating a variable for coordinates
 var nyc = { lat: 40.71, lng: -74.006 }
 
-var map = L.map('map').setView([ 40.71, -74.006], 10);
+var map = L.map('map').setView([ 40.71, -74.006], 8);
+
+$("#map").height(400).width(900);
+map.invalidateSize();
+
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-
+}).addTo(map)
 
 
 let countries = [];
@@ -107,12 +80,24 @@ $.get("https://disease.sh/v3/covid-19/all", function(international, status){
 // 
 
 function selectCountry(index) {
+    const loc = { lat: countries[index].countryInfo.lat, lng: countries[index].countryInfo.long }
+    
+    map.setView(new L.LatLng([loc]), 8);
     $("#death").text(countries[index].deaths)
     $("#recovered").text(countries[index].recovered)
     $("#cases").text(countries[index].cases)
+
+    // map.setCenter(loc)
+    // const Lat = countries[index].countryInfo.lat
+    // const Long = countries[index].countryInfo.long
+
+    // var LongLat = [Long, Lat];
+    // parsedTest = JSON.parse(LongLat); //an array [1,2]
+    // var marker = new L.marker([value.countryInfo.lat, value.countryInfo.long]).addTo(map);
+
+    // map.panTo(new L.LatLng()
+    // SetViewOnClick()
 }
-
-
 // 45:44
 
 // 

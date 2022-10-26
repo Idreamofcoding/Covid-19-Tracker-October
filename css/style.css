@@ -4,17 +4,62 @@
     box-sizing: border-box;
 }
 
+.wrapper {
+    background-color: #344cce;
+    background-image: linear-gradient(206deg, #344cce 0%, #C850C0 69%, #FFCC70 100%);
+    height: 100vh;
+    text-align: center;
+}
+
 #map {
     width: 400px;
     height: 400px;
 }
 
-.one {
-    display: flex;
+#world-data {
+    font-size: 250%;
 }
 
-.one-a {
+.one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.world-death, .world-recovered, .world-cases, .country-death, .country-recovery, .country-cases {
     width: 200px;
-    height: 200px;
-    background-color: red;
+    height: 140px;
+    /* background-color: red; */
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+    border: 1px solid rgba(255, 255, 255, 0.37);
+}
+
+.world-recovered, .country-recovery {
+    margin: 0 40px;
+}
+
+.one-a h3 {
+    font-size: 170%;
+}
+
+.world-death h3, .world-recovered h3, .world-cases h3, .country-death h3, .country-recovery h3, 
+.country-cases h3 {
+    font-size: 170%;
+}
+
+.world-death p, .world-recovered p, .world-cases p, .country-death p, .country-recovery p, 
+.country-cases p {
+    font-size: 170%;
+    padding-top: 10px;
+}
+
+#map {
+    margin: 0 auto;
+    margin-top: 30px;
+    /* width: 80%; */
 }

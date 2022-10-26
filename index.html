@@ -15,9 +15,10 @@
     
 </head>
 <body>
-    <h1>World Data</h1>
+    <div class="wrapper">
+    <h1 id="world-data">World Data</h1>
     <div class="one">
-        <div class="one-a">
+        <div class="world-death">
             <h3>
                 Deaths Confirmed
             </h3>
@@ -25,7 +26,7 @@
                 22
             </p>
         </div>
-        <div class="one-a">
+        <div class="world-recovered">
             <h3>
                 Recoveries Confirmed
             </h3>
@@ -33,7 +34,7 @@
                 22
             </p>
         </div>
-        <div class="one-a">
+        <div class="world-cases">
             <h3>
                 Cases Confirmed
             </h3>
@@ -42,12 +43,12 @@
             </p>
         </div>
     </div>
-    <h2>Select Country</h2>
+    <h2>Country Data (select a nation)</h2>
     <select onchange="selectCountry(this.value)" name="" id="country" placeholder="select country">
         <!-- <option value="USA">USA</option> -->
     </select>
     <div class="one">
-        <div class="one-a">
+        <div class="country-death">
             <h3>
                 Deaths Confirmed
             </h3>
@@ -55,7 +56,7 @@
                 22
             </p>
         </div>
-        <div class="one-a">
+        <div class="country-recovery">
             <h3>
                 Recoveries Confirmed
             </h3>
@@ -63,7 +64,7 @@
                 22
             </p>
         </div>
-        <div class="one-a">
+        <div class="country-cases">
             <h3>
                 Cases Confirmed
             </h3>
@@ -76,6 +77,7 @@
     <div id="map">
 
     </div>
+</div>
 
 
     <!-- <script type="text/javascript" src="./index.js"></script> -->
