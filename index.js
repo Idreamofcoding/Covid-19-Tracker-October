@@ -18,8 +18,8 @@ let countries = [];
 $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
     try {
         countries = data;
-        console.log("dog", data)
-        console.log("countries", countries)
+        // console.log("dog", data)
+        // console.log("countries", countries)
         $("#death").text(countries[0].deaths)
         $("#recovered").text(countries[0].recovered)
         $("#cases").text(countries[0].cases)
@@ -63,12 +63,9 @@ $.get("https://disease.sh/v3/covid-19/countries", function(data, status){
     }
 });
 
-
-// 
 $.get("https://disease.sh/v3/covid-19/all", function(international, status){
     try {
-        console.log("international data", international)
-        // console.log(countries)
+        // console.log("international data", international)
         $("#death_international").text(international.deaths)
         $("#recovered_international").text(international.recovered)
         $("#cases_international").text(international.cases)        
@@ -77,38 +74,10 @@ $.get("https://disease.sh/v3/covid-19/all", function(international, status){
     }
 });
 
-// 
-
 function selectCountry(index) {
     const loc = { lat: countries[index].countryInfo.lat, lng: countries[index].countryInfo.long }
-    
-    map.setView(new L.LatLng([loc]), 8);
+    map.panTo(new L.LatLng(loc.lat, loc.lng), 8);
     $("#death").text(countries[index].deaths)
     $("#recovered").text(countries[index].recovered)
     $("#cases").text(countries[index].cases)
-
-    // map.setCenter(loc)
-    // const Lat = countries[index].countryInfo.lat
-    // const Long = countries[index].countryInfo.long
-
-    // var LongLat = [Long, Lat];
-    // parsedTest = JSON.parse(LongLat); //an array [1,2]
-    // var marker = new L.marker([value.countryInfo.lat, value.countryInfo.long]).addTo(map);
-
-    // map.panTo(new L.LatLng()
-    // SetViewOnClick()
 }
-// 45:44
-
-// 
-            // this will show the country and its number of cases today
-            // console.log(value.country)
-            // console.log(value.todayCases)
-            // console.log(value.todayDeaths)
-            // 
-            // this will get country id
-            // console.log(value.countryInfo._id)
-            // 
-            // this will get country flag
-            // console.log(value.country)
-            // console.log(value.countryInfo.flag)
